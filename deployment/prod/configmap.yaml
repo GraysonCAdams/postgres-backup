@@ -11,3 +11,4 @@ data:
   PG_PORT: ""
   PG_USER: ""
   PG_PASS: ""
+  S3_BUCKET: ""
