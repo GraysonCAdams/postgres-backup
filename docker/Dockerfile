@@ -26,5 +26,5 @@ COPY . /home/root/
 WORKDIR "/home/root"
 RUN chmod +x backup.sh
 
-ENTRYPOINT ["tail", "-f", "/dev/null"]
-# ENTRYPOINT ["./backup.sh"]
+# ENTRYPOINT ["tail", "-f", "/dev/null"]
+ENTRYPOINT ["./backup.sh"]
