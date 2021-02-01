@@ -25,6 +25,7 @@ spec:
           restartPolicy: Never
           containers:
           - name:  postgres-backup
+            imagePullPolicy: Always
             image: 10.0.0.242:5000/postgres-backup:latest
             envFrom:
               - configMapRef:

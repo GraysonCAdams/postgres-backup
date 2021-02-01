@@ -1,9 +1,8 @@
 #!/bin/bash
 cd /home/root
-date1=$(date +%Y%m%d-%H%M)
 mkdir pg-backup
 PGPASSWORD="$PG_PASS" pg_dumpall -h $PG_HOST -p $PG_PORT -U $PG_USER > pg-backup/postgres-db.tar
-file_name="pg-backup-"$date1".tar.gz"
+file_name="pg-backup.tar.gz"
 
 #Compressing backup file for upload
 tar -zcvf $file_name pg-backup
@@ -12,5 +11,5 @@ mfs=10
 
 if [[ "$filesize" -gt "$mfs" ]]; then
 # Uploading to s3
-aws s3 cp pg-backup-$date1.tar.gz $S3_BUCKET
+aws s3 cp pg-backup.tar.gz $S3_BUCKET
 fi
